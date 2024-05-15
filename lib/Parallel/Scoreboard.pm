@@ -118,7 +118,7 @@ sub _for_all {
     my @files = glob "$self->{base_dir}/status_*";
     for my $fn (@files) {
         # obtain id from filename (or else ignore)
-        $fn =~ m|/status_(.*)$|
+        $fn =~ m|/status_(.*)(?<!\.tmp)$|
             or next;
         my $id = $1;
         # ignore files removed after glob but before open
